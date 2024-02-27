@@ -20,7 +20,7 @@ void	to_bin(char *pid, char *message)
 			kill(pid_n, SIGUSR2);
 		ft_printf("processing %d\n", (c >> i & 1));
 		i--;
-		usleep(42);
+		usleep(500);
 	}
 
 }
