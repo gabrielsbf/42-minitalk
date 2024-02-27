@@ -2,38 +2,26 @@
 # include "libft/includes/libft.h"
 # include <signal.h>
 
-char	to_char(int signum)
-{
+
+void sig_handler(int signum)
+  {
 	static int	oct;
-	static int	bin;
+	static char	bin;
 
-	bin = 0;
-	oct = 7;
-	if(oct >= 0)
+	if (!bin)
+		bin = 0;
+	if (!oct)
+		oct = 0;
+	if (signum == SIGUSR1)
+		bin += (128 >> oct);
+	oct++;
+	if (oct == 8)
 	{
-
-		if (signum == SIGUSR1)
-			bin =+ bin >> oct | 1;
-		oct--;
-	}
-	else
-	{
-		oct = 7;
 		ft_printf("response %c\n", bin);
+		bin = 0;
+		oct = 0;
 	}
 	ft_printf("bin is %d - oct is : %d\n", bin, oct);
-
-}
-
-void sig_handler(int signal_number)
-  {
-	char response;
-
-	response = to_char(signal_number);
-	ft_printf("response: %c\n", response);
-	// (void)info;
-	// (void)context;
-
   }
 
 
@@ -49,8 +37,9 @@ int main( void )
 	sa.sa_flags = SA_SIGINFO | SA_RESTART;
 	sa.sa_handler = sig_handler;
 	ft_printf("server initialized! pid: %d\n", getpid());
-	sigaction(SIGUSR1, &sa, NULL);
 	sigaction(SIGUSR2, &sa, NULL);
+	sigaction(SIGUSR1, &sa, NULL);
+	
 	while(1)
 		pause();
 
