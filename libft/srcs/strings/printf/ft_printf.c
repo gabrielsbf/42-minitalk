@@ -14,9 +14,11 @@
 
 static int	return_arg(va_list args, char type, int *result)
 {
-	if (!ft_strchr("cspdiuxX%", type))
+	if (type == '\0')
 		return (0);
-	if (type == 'c')
+	else if (!ft_strchr("cspdiuxX%", type))
+		ft_putchar_r(type, 1, result);
+	else if (type == 'c')
 		ft_putchar_r(va_arg(args, int), 1, result);
 	else if (type == 's')
 		ft_putstr_r(va_arg(args, char *), 1, result);
@@ -46,15 +48,10 @@ int	ft_printf(const char *text, ...)
 	va_start(args, text);
 	while (text[i] != '\0')
 	{
-		while(text[i] == '%')
+		while (text[i] == '%')
 		{
-			if (text[i] == '%' && text[i++] != '\0' && return_arg(args, text[i], &result) == 1)
+			if (return_arg(args, text[++i], &result) == 1)
 				i++;
-			else
-			{
-				ft_putchar_r(text[i], 1, &result);
-				i++;
-			}
 		}
 		if (text[i] == '\0')
 			break ;
@@ -64,15 +61,3 @@ int	ft_printf(const char *text, ...)
 	va_end(args);
 	return (result);
 }
-
-// int	main(void)
-// {
-// 	#include <stdio.h>
-// 	#include <limits.h>
-// 	// int val = 200;
-// 	// int *pointer = &val;
-// 	int ft_printf_result = ft_printf("ULONG = %x -- UINT = %x\n", 9223372036854775807,UINT_MAX);
-// 	printf("%d\n", ft_printf_result);
-// 	int printf_result = printf("ULONG = %x -- UINT = %x\n", 9223372036854775807,UINT_MAX);
-// 	printf("%d\n", printf_result);
-// }

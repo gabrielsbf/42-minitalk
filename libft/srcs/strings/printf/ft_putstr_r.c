@@ -1,12 +1,12 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_putstr_r.c                                     :+:      :+:    :+:   */
+/*   ft_putstr_r.c                                      :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: gabrfern <gabrfern@student.42.rio>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/10/31 20:16:42 by gabrfern          #+#    #+#             */
-/*   Updated: 2023/10/31 20:20:15 by gabrfern         ###   ########.fr       */
+/*   Updated: 2024/01/04 13:35:05 by gabrfern         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -21,7 +21,8 @@ void	ft_putstr_r(char *s, int fd, int *result)
 		write(1, "(null)", 6);
 		*result = *result + 6;
 	}
-	else{
+	else
+	{
 		len = ft_strlen(s);
 		*result = *result + len;
 		write(fd, s, len);

@@ -6,12 +6,11 @@
 /*   By: gabrfern <gabrfern@student.42.rio>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/01/18 09:39:25 by gabrfern          #+#    #+#             */
-/*   Updated: 2024/01/18 09:39:29 by gabrfern         ###   ########.fr       */
+/*   Updated: 2024/01/24 22:20:42 by gabrfern         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../../../includes/libft.h"
-
 
 char	*ft_gnl_strchr(char *s, int c)
 {
@@ -83,6 +82,7 @@ char	*ft_gnl_strdup(char *s, int size_buff)
 {
 	int		i;
 	char	*ptr;
+
 	if (size_buff <= 0)
 		return (NULL);
 	i = 0;

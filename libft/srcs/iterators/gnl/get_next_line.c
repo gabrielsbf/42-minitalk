@@ -6,7 +6,7 @@
 /*   By: gabrfern <gabrfern@student.42.rio>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/01/18 09:39:15 by gabrfern          #+#    #+#             */
-/*   Updated: 2024/01/18 09:39:19 by gabrfern         ###   ########.fr       */
+/*   Updated: 2024/01/24 22:20:28 by gabrfern         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -29,7 +29,7 @@ char	*ft_gnl_strjoin(char *main_str, char *complement)
 	ptr = (char *)malloc((s1_len + s2_len + 1) * sizeof(char));
 	ft_gnl_strlcpy(ptr, main_str, ft_gnl_strlen(main_str) + 1);
 	free(main_str);
-	ft_gnl_strcat(ptr, complement) ;
+	ft_gnl_strcat(ptr, complement);
 	return (ptr);
 }
 
@@ -48,7 +48,7 @@ char	*return_line(char *ent_line)
 	ptr = (char *)malloc((i + 1) * sizeof(char));
 	if (!ptr)
 		return (NULL);
-	if(ent_line[i - 1] == '\n')
+	if (ent_line[i - 1] == '\n')
 		ptr[i - 1] = '\n';
 	ptr[i] = '\0';
 	i = 0;
@@ -125,7 +125,7 @@ char	*get_next_line(int fd)
 		storage = NULL;
 	}
 	while (buff_size == BUFFER_SIZE && ft_gnl_strchr(ent_line, '\n') == 0)
-			ent_line = read_process(fd, &buff_size, ent_line);
+		ent_line = read_process(fd, &buff_size, ent_line);
 	storage = store_after_lb(ent_line);
 	ent_line = return_line(ent_line);
 	return (ent_line);

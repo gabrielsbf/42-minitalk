@@ -1,12 +1,12 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_puthex_r.c                                     :+:      :+:    :+:   */
+/*   ft_puthex_r.c                                      :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: gabrfern <gabrfern@student.42.rio>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/12/06 15:19:39 by gabrfern          #+#    #+#             */
-/*   Updated: 2023/12/06 15:19:40 by gabrfern         ###   ########.fr       */
+/*   Updated: 2024/01/04 13:34:33 by gabrfern         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,7 +18,7 @@ void	ft_puthex_r(unsigned long long n, int fd, int prefix, int *result)
 
 	if (prefix == 1)
 	{
-		if(n == 0)
+		if (n == 0)
 		{
 			write(1, "(nil)", 5);
 			*result = *result + 5;
@@ -44,7 +44,7 @@ void	ft_puthex_upper_r(unsigned long long n, int fd, int *result)
 	ft_strlcpy(replace_v, "0123456789ABCDEF", 17);
 	if (n >= 16)
 	{
-		ft_puthex_upper_r(n / 16, fd,  result);
+		ft_puthex_upper_r(n / 16, fd, result);
 		ft_puthex_upper_r(n % 16, fd, result);
 	}
 	else
