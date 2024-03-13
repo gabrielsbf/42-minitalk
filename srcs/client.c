@@ -1,6 +1,4 @@
-#include "libft/includes/libft.h"
-#include <signal.h>
-
+#include "../includes/client.h"
 
 void	to_bin(char *pid, char *message)
 {

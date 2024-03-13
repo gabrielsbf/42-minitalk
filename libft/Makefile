@@ -1,6 +1,6 @@
 NAME=libft.a
 
-LIBRARY_DIR = ./libraries
+LIBRARY_DIR = ./
 
 LIBFT_A = $(LIBRARY_DIR)/$(NAME)
 
