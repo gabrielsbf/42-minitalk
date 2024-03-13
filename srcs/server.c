@@ -10,6 +10,7 @@ void sig_handler(int signum)
 		bin = 0;
 	if (!oct)
 		oct = 0;
+	//Entender melhor essa sentença abaixo
 	if (signum == SIGUSR1)
 		bin += (128 >> oct);
 	oct++;
