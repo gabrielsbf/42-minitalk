@@ -2,3 +2,6 @@ a.exe
 .vscode
 *.o
 a.out
+client
+server
+*.a

@@ -33,7 +33,7 @@ clean:
 	cd $(LIBFT_DIR) && make fclean && cd ..
 
 fclean: clean
-	rm $(SERVER) $(CLIENT)
+	rm -f $(SERVER) $(CLIENT)
 
 re : fclean $(SERVER) $(CLIENT)
 

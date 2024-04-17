@@ -1,8 +1,20 @@
-# ifndef MINITALK_H
-#  define MINITALK_H
+/* ************************************************************************** */
+/*                                                                            */
+/*                                                        :::      ::::::::   */
+/*   client.h                                           :+:      :+:    :+:   */
+/*                                                    +:+ +:+         +:+     */
+/*   By: gabrfern <gabrfern@student.42.rio>         +#+  +:+       +#+        */
+/*                                                +#+#+#+#+#+   +#+           */
+/*   Created: 2024/04/16 21:47:02 by gabrfern          #+#    #+#             */
+/*   Updated: 2024/04/16 21:47:07 by gabrfern         ###   ########.fr       */
+/*                                                                            */
+/* ************************************************************************** */
 
-#include <signal.h>
-#include "../libft/includes/libft.h"
+#ifndef CLIENT_H
+# define CLIENT_H
+
+# include <signal.h>
+# include "../libft/includes/libft.h"
 
 void	to_bin(char *pid, char *message);
 
