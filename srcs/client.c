@@ -31,7 +31,7 @@ void	to_bin(char *pid, char *message)
 			else
 				kill(pid_n, SIGUSR2);
 			i--;
-			usleep(250);
+			usleep(450);
 		}
 		i = 7;
 		c++;
