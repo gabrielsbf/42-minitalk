@@ -10,10 +10,9 @@
 /*                                                                            */
 /* ************************************************************************** */
 
-
 #include "../includes/server.h"
 
-void sig_handler(int signum)
+void	sig_handler(int signum)
 {
 	static int	oct;
 	static char	bin;
@@ -22,7 +21,6 @@ void sig_handler(int signum)
 		bin = 0;
 	if (!oct)
 		oct = 0;
-	//Entender melhor essa sentença abaixo
 	if (signum == SIGUSR1)
 		bin += (128 >> oct);
 	oct++;
@@ -34,16 +32,12 @@ void sig_handler(int signum)
 	}
 }
 
-
-int main( void )
-  {
-
-	struct sigaction sa;
+int	main( void )
+{
+	struct sigaction	sa;
 
 	sa.sa_flags = SA_RESTART;
 	sa.sa_handler = sig_handler;
-
-
 	ft_printf("███╗░░░███╗██╗███╗░░██╗██╗████████╗░█████╗░██╗░░░░░██╗░░██╗\n");
 	ft_printf("████╗░████║██║████╗░██║██║╚══██╔══╝██╔══██╗██║░░░░░██║░██╔╝\n");
 	ft_printf("██╔████╔██║██║██╔██╗██║██║░░░██║░░░███████║██║░░░░░█████═╝░\n");
@@ -52,15 +46,8 @@ int main( void )
 	ft_printf("╚═╝░░░░░╚═╝╚═╝╚═╝░░╚══╝╚═╝░░░╚═╝░░░╚═╝░░╚═╝╚══════╝╚═╝░░╚═╝\n");
 	ft_printf("--------------------server is listening!--------------------\n");
 	ft_printf("\e[1;92mPID: %d\n", getpid());
-
-
-
-
-
 	sigaction(SIGUSR2, &sa, NULL);
 	sigaction(SIGUSR1, &sa, NULL);
-
-	while(1)
+	while (1)
 		pause();
-  }
-
+}
